@@ -1,0 +1,34 @@
+body {
+  background-color: #eee;
+}
+#box {
+  background-color: #fff;
+}
+#box .nav li {
+  background-color: #eee;
+}
+#box .data {
+  border: 1px solid #ddd;
+  border-top: unset;
+  height: 520px;
+}
+#box #info .leaveMessageData {
+  width: 100%;
+}
+#box #info .leaveMessageData li {
+  height: 30px;
+}
+#box #writeMsg {
+  display: none;
+}
+#box #writeMsg .form-control {
+  resize: none;
+  height: 400px;
+  margin-bottom: 10px;
+}
+#box #writeMsg .btn-box {
+  text-align: center;
+}
+#box #writeMsg .btn-box .btn {
+  padding: 8px 80px;
+}

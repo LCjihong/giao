@@ -1,0 +1,30 @@
+/* margin的样式初始化 */
+body,h1,h2,h3,h4,h5,h6,p,ul,ol{
+    margin:0px;
+}
+/* padding的样式初始化 */
+ul,ol,input{
+    padding:0px;
+}
+/* 列表的样式初始化 */
+ul,ol,li{
+    list-style: none;
+}
+/* 文本样式初始化 */
+em,i {
+    font-style:normal;
+}
+a {
+    text-decoration: none;
+}
+img {
+    vertical-align: top;
+    border:none;
+}
+/* BFC */
+.clear:after{
+    content: "";display: block;clear:both;
+}
+.clear{
+    zoom: 1;
+}

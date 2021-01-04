@@ -68,7 +68,7 @@ var writeDynamic = function () {
   let data = [];
   $.ajax({
     type: "post",
-    url: "http://192.168.1.46:8880/view/getArticleList",
+    url: "http://192.168.1.20:8880/view/getArticleTypeList",
     data: {
       articleType: '动态',
       pageNo: 15
@@ -167,7 +167,7 @@ let testSwiperData = [
 writeSwiper(testSwiperData);
 
 // 写入真实数据
-// 192.168.1.46
+// 192.168.1.20
 let news = {
   newsData: [],
   freshNewsData: [],
@@ -178,7 +178,7 @@ function getData() {
   // 轮播图
   $.ajax({
     type: "post",
-    url: "http://192.168.1.46:8880/view/piclist",
+    url: "http://192.168.1.20:8880/view/piclist",
     data: "hahaha",
     dataType: "json",
     success: function (response) {
@@ -189,7 +189,7 @@ function getData() {
   // 新闻数据
   $.ajax({
     type: "post",
-    url: "http://192.168.1.46:8880/view/getArticleList",
+    url: "http://192.168.1.20:8880/view/getArticleTypeList",
     data: {
       articleType: '新闻发布',
       pageNo: 5
@@ -203,7 +203,7 @@ function getData() {
 
   $.ajax({
     type: "post",
-    url: "http://192.168.1.46:8880/view/getArticleList",
+    url: "http://192.168.1.20:8880/view/getArticleTypeList",
     data: {
       articleType: '时政要闻',
       pageNo: 5
@@ -216,7 +216,7 @@ function getData() {
 
   $.ajax({
     type: "post",
-    url: "http://192.168.1.46:8880/view/getArticleList",
+    url: "http://192.168.1.20:8880/view/getArticleTypeList",
     data: {
       articleType: '通知通告',
       pageNo: 5
@@ -238,9 +238,9 @@ function getData() {
   // 专题
   $.ajax({
     type: "post",
-    url: "http://192.168.1.46:8880/view/getArticleList",
+    url: "http://192.168.1.20:8880/view/getArticleTypeList",
     data: {
-      articleType: '专题',
+      articleType: '专题',  
       pageNo: 3
     },
     dataType: "json",
@@ -257,21 +257,21 @@ function getData() {
   $('.dynamic .cell .view').mouseleave(function () {
     scrollDynamic();
   }); // 移出开始滚动
-
-  // 留言选登
+      
+      // 留言选登
   $.ajax({
     type: "post",
-    url: "http://192.168.1.46:8880/view/getMessagesList",
+    url: "http://192.168.1.20:8880/view/getMessagesList",
     data: {
       replyStatus: '',
       pageNo: 5
     },
     dataType: "json",
     success: function (response) {
+      console.log(response);
       writeLeaveMsg(response.rows);
     }
   });
-
-  
 }
 getData();
+

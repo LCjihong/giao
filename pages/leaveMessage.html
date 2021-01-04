@@ -1,3 +1,6 @@
+<script>
+  sessionStorage.setItem('pageName', './leaveMessage.html');
+</script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +10,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="../static/css/reset.css">
   <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../static/css/leaveMessage.css">
+  <link rel="stylesheet" href="../static/css/personal/leaveMessage.css">
 </head>
 
 <body>
@@ -133,22 +136,4 @@
 </html>
 <script src="../static/js/jquery-3.5.1.min.js"></script>
 <script src="../static/bootstrap/js/bootstrap.min.js"></script>
-<script>
-  $(function () {
-    $('.nav li').click(function (e) {
-      e.preventDefault();
-      $('.nav .active').removeClass('active');
-      $(this).addClass('active');
-    });
-    $('.nav li:eq(0)').click(function (e) {
-      e.preventDefault();
-      $('#info').show();
-      $('#writeMsg').hide();
-    });
-    $('.nav li:eq(1)').click(function (e) {
-      e.preventDefault();
-      $('#info').hide();
-      $('#writeMsg').show();
-    });
-  })
-</script>
+<script src="../static/js/leaveMessage.js"></script>

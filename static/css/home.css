@@ -69,7 +69,7 @@
 }
 #above .news-box .data ul li span {
   display: inline-block;
-  width: 450px;
+  width: 360px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -117,24 +117,30 @@
 #follow .right {
   margin-top: 20px;
 }
-#follow .info-box {
-  box-sizing: border-box;
+#follow .middleBox {
+  margin-top: 20px;
   background-color: #fff;
 }
-#follow .info-box h3 {
+#follow .middleBox .info-box {
+  box-sizing: border-box;
+  background-color: #fff;
+  height: 200px;
+}
+#follow .middleBox .info-box h3 {
   font-size: 18px;
   font-weight: 500;
   margin: 0;
+  height: 40px;
   position: relative;
 }
-#follow .info-box h3 .tags {
+#follow .middleBox .info-box h3 .tags {
   display: flex;
   justify-content: flex-start;
   margin: 0;
   height: 100%;
 }
-#follow .info-box h3 .tags li {
-  width: 80px;
+#follow .middleBox .info-box h3 .tags li {
+  width: 90px;
   height: 34px;
   box-sizing: content-box;
   padding: 6px 30px 0;
@@ -144,11 +150,11 @@
   transition: 0.4s;
   position: relative;
 }
-#follow .info-box h3 .tags li.active {
+#follow .middleBox .info-box h3 .tags li.active {
   box-shadow: 2px -2px 4px rgba(0, 0, 0, 0.2);
   color: #2860a8;
 }
-#follow .info-box h3 a {
+#follow .middleBox .info-box h3 a {
   position: absolute;
   font-size: 16px;
   height: 20px;
@@ -159,9 +165,32 @@
   color: #666;
   transform: translateY(-10px);
 }
-#follow .info-box .data {
+#follow .middleBox .info-box .data {
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
   background-color: #fff;
+}
+#follow .middleBox .info-box .data ul {
+  padding: 5px;
+  margin: 0;
+}
+#follow .middleBox .info-box .data ul li {
+  line-height: 25px;
+}
+#follow .middleBox .info-box .data ul li em {
+  display: inline-block;
+  font-weight: 900;
+  margin-right: 5px;
+}
+#follow .middleBox .info-box .data ul li span {
+  display: inline-block;
+  width: 360px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+#follow .middleBox .info-box .data ul li i {
+  float: right;
 }
 #follow .leaveMsg {
   background-color: #fff;
@@ -226,8 +255,11 @@
   margin: 0;
 }
 #follow .topic .cell ul li .info .title {
-  font-size: 30px;
+  font-size: 18px;
   font-weight: 900;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 #follow .topic .cell ul li .info .desc {
   color: #666;
@@ -264,6 +296,10 @@
 #follow .dynamic .cell .view ul li {
   border-bottom: 1px solid #ddd;
   height: 34px;
+  width: 262px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   line-height: 34px;
   box-sizing: border-box;
   width: 100%;

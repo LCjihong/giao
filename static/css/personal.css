@@ -1,0 +1,32 @@
+.breadcrumb {
+  background-color: #fff;
+  line-height: 30px;
+  border-bottom: 1px solid #2860a8;
+  border-radius: 0;
+}
+.list-group button {
+  text-align: center;
+  outline: none;
+}
+.avaWall .group {
+  border-bottom: 1px solid #2860a8;
+  padding-bottom: 10px;
+}
+.avaWall .group .Per {
+  width: 110px;
+  float: left;
+  margin-right: 20px;
+}
+.avaWall .group .Per .img-box {
+  width: 110px;
+  height: 150px;
+  padding: 5px;
+  border: 1px solid #ddd;
+}
+.avaWall .group .Per .img-box img {
+  width: 100%;
+  height: 100%;
+}
+.avaWall .group .Per .name {
+  text-align: center;
+}

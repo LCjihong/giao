@@ -6,14 +6,14 @@ function writeSwiper(data) {
   $('#above .left-info .swiper .carousel-inner').html(
     $.map(data, function (v, i) {
       return (i == 0) ? `<div class="item active">
-        <img src="${v.url}" alt="${v.desc}">
+        <img src="${v.picture}" alt="${v.carouselTitle}">
         <div class="desc">
-          <p>${v.desc}</p>
+          <p>${v.content}</p>
         </div>
       </div>` : `<div class="item">
-        <img src="${v.url}" alt="${v.desc}">
+        <img src="${v.picture}" alt="${v.carouselTitle}">
         <div class="desc">
-          <p>${v.desc}</p>
+          <p>${v.content}</p>
         </div>
       </div>`;
     }).join('')
@@ -35,7 +35,7 @@ function writeNewsBox(data){
   );
   $('#above .news-box .data ul').html(
     data.filter((v, i) => i != 0).map((v, i) => {
-      return `<li index="${data.id}"><em>·</em><span>${v.articleAbstract}</span><i>[${v.createTime}]</i></li>`
+      return `<li index="${data.id}"><em>·</em><span>${v.articleAbstract}</span><i>[${v.createTime.split(' ')[0]}]</i></li>`
     }).join('')
   );
 }
@@ -68,7 +68,7 @@ var writeDynamic = function () {
   let data = [];
   $.ajax({
     type: "post",
-    url: "http://192.168.1.20:8880/view/getArticleTypeList",
+    url: "http://renjihong.zone/supplier-website/view/getArticleTypeList",
     data: {
       articleType: '动态',
       pageNo: 15
@@ -136,60 +136,48 @@ function writeLeaveMsg(data) {
   );
 }
 
-// 测试
-let testSwiperData = [
-  {
-    url: 'http://192.168.1.20:8880/profile/upload/2020/12/29/94cb9a09-c1a5-449d-ad4d-b0e1ba1b6fb2.png',
-    desc:'giao'
-  },
-  {
-    url: '../static/img/test/swiper/2.jpeg',
-    desc: 'giao'
-  },
-  {
-    url: '../static/img/test/swiper/3.jpeg',
-    desc: 'giao'
-  },
-  {
-    url: '../static/img/test/swiper/4.jpeg',
-    desc: 'giao'
-  },
-  {
-    url: '../static/img/test/swiper/5.jpeg',
-    desc: 'giao'
-  },
-  {
-    url: '../static/img/test/swiper/6.jpeg',
-    desc: 'giao'
-  }
-]
+function writeMiddleLeft(data){
+  $('.middleBox .left .data ul').html(
+    $.map(data, function (v, i) {
+      return `<li index="${data.id}"><em>·</em><span>${v.articleAbstract}</span><i>[${v.createTime.split(' ')[0]}]</i></li>`
+    }).join('')
+  );
+}
 
-writeSwiper(testSwiperData);
+function writeMiddleRight(data) {
+  $('.middleBox .right .data ul').html(
+    $.map(data, function (v, i) {
+      return `<li index="${data.id}"><em>·</em><span>${v.articleAbstract}</span><i>[${v.createTime.split(' ')[0]}]</i></li>`
+    }).join('')
+  );
+}
 
 // 写入真实数据
 // 192.168.1.20
 let news = {
   newsData: [],
   freshNewsData: [],
-  notice: []
+  notice: [],
+  zhengce:[],
+  zhengcejiedu:[]
 }
 
 function getData() {
   // 轮播图
   $.ajax({
     type: "post",
-    url: "http://192.168.1.20:8880/view/piclist",
+    url: "http://renjihong.zone/supplier-website/view/piclist",
     data: "hahaha",
     dataType: "json",
     success: function (response) {
-      console.log(response);
+      writeSwiper(response.rows)
     }
   });
 
   // 新闻数据
   $.ajax({
     type: "post",
-    url: "http://192.168.1.20:8880/view/getArticleTypeList",
+    url: "http://renjihong.zone/supplier-website/view/getArticleTypeList",
     data: {
       articleType: '新闻发布',
       pageNo: 5
@@ -203,7 +191,7 @@ function getData() {
 
   $.ajax({
     type: "post",
-    url: "http://192.168.1.20:8880/view/getArticleTypeList",
+    url: "http://renjihong.zone/supplier-website/view/getArticleTypeList",
     data: {
       articleType: '时政要闻',
       pageNo: 5
@@ -216,7 +204,7 @@ function getData() {
 
   $.ajax({
     type: "post",
-    url: "http://192.168.1.20:8880/view/getArticleTypeList",
+    url: "http://renjihong.zone/supplier-website/view/getArticleTypeList",
     data: {
       articleType: '通知通告',
       pageNo: 5
@@ -238,7 +226,7 @@ function getData() {
   // 专题
   $.ajax({
     type: "post",
-    url: "http://192.168.1.20:8880/view/getArticleTypeList",
+    url: "http://renjihong.zone/supplier-website/view/getArticleTypeList",
     data: {
       articleType: '专题',  
       pageNo: 3
@@ -257,21 +245,76 @@ function getData() {
   $('.dynamic .cell .view').mouseleave(function () {
     scrollDynamic();
   }); // 移出开始滚动
-      
-      // 留言选登
+  
   $.ajax({
     type: "post",
-    url: "http://192.168.1.20:8880/view/getMessagesList",
+    url: "http://renjihong.zone/supplier-website/view/getArticleTypeList",
+    data: {
+      articleType: '政策法规',
+      pageNo: 5
+    },
+    dataType: "json",
+    success: function (response) {
+      writeMiddleLeft(response.rows);
+      news.zhengce = response.rows
+    }
+  });
+
+  $.ajax({
+    type: "post",
+    url: "http://renjihong.zone/supplier-website/view/getArticleTypeList",
+    data: {
+      articleType: '政策解读',
+      pageNo: 5
+    },
+    dataType: "json",
+    success: function (response) {
+      news.zhengcejiedu = response.rows
+    }
+  });
+
+  $.ajax({
+    type: "post",
+    url: "http://renjihong.zone/supplier-website/view/getArticleTypeList",
+    data: {
+      articleType: '公示及调查',
+      pageNo: 5
+    },
+    dataType: "json",
+    success: function (response) {
+      writeMiddleRight(response.rows);
+    }
+  });
+
+  // 留言选登
+  $.ajax({
+    type: "post",
+    url: "http://renjihong.zone/supplier-website/view/getMessagesList",
     data: {
       replyStatus: '',
       pageNo: 5
     },
     dataType: "json",
     success: function (response) {
-      console.log(response);
       writeLeaveMsg(response.rows);
     }
   });
 }
-getData();
-
+$(function () {
+  getData();
+  $('.info-box .tags li').mouseover(function () {
+    $(this).parent('.tags').find('.active').removeClass('active');
+    $(this).addClass('active');
+    sessionStorage.setItem('newsType', $(this).text())
+  })
+  $('.middleBox .left .info-box .tags li').mouseover(function () { 
+    switch ($(this).text()) {
+      case '政策法规':
+        writeMiddleLeft(news.zhengce);
+        break;
+      case '政策解读':
+        writeMiddleLeft(news.zhengcejiedu);
+        break;
+    }
+  });
+})

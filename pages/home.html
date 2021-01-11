@@ -94,47 +94,50 @@
           </div>
         </div>
 
-        <!-- <div class="col-xs-6 left">
+        <div class="col-xs-12 middleBox">
           <div class="row">
-            <div class="info-box">
-              <h3>
-                <ul class="tags">
-                  <li class="active" url="./dynamic.html">动态</li>
-                </ul>
-                <a href="./dynamic.html">更多>></a>
-              </h3>
-              <div class="data">
-                <ul>
-                  <li>任继宏任继宏任继宏任继宏</li>
-                  <li>任继宏任继宏任继宏任继宏</li>
-                  <li>任继宏任继宏任继宏任继宏</li>
-                  <li>任继宏任继宏任继宏任继宏</li>
-                </ul>
-              </div>
+            <div class="col-xs-6 left">
+                <div class="info-box">
+                  <h3>
+                    <ul class="tags">
+                      <li class="active">政策法规</li>
+                      <li>政策解读</li>
+                    </ul>
+                    <a href="./all.html">更多>></a>
+                  </h3>
+                  <div class="data">
+                    <ul>
+                      <li><em>·</em><span>123</span><i></i></li>
+                      <li><em>·</em><span>123</span><i></i></li>
+                      <li><em>·</em><span>123</span><i></i></li>
+                      <li><em>·</em><span>123</span><i></i></li>
+                      <li><em>·</em><span>123</span><i></i></li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6 right">
+                <div class="info-box">
+                  <h3>
+                    <ul class="tags">
+                      <li class="active">公示及调查</li>
+                    </ul>
+                    <a href="./all.html">更多>></a>
+                  </h3>
+                  <div class="data">
+                    <ul>
+                      <li><em>·</em><span>123</span><i></i></li>
+                      <li><em>·</em><span>123</span><i></i></li>
+                      <li><em>·</em><span>123</span><i></i></li>
+                      <li><em>·</em><span>123</span><i></i></li>
+                      <li><em>·</em><span>123</span><i></i></li>
+                    </ul>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
-
-        <div class="col-xs-6 right">
-          <div class="row">
-            <div class="info-box">
-              <h3>
-                <ul class="tags">
-                  <li class="active" url="./dynamic.html">动态</li>
-                </ul>
-                <a href="./dynamic.html">更多>></a>
-              </h3>
-              <div class="data">
-                <ul>
-                  <li>任继宏任继宏任继宏任继宏</li>
-                  <li>任继宏任继宏任继宏任继宏</li>
-                  <li>任继宏任继宏任继宏任继宏</li>
-                  <li>任继宏任继宏任继宏任继宏</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div> -->
 
         <div class="leaveMsg col-xs-12">
           <h3>留言选登展示</h3>
@@ -151,12 +154,3 @@
 <script src="../static/js/jquery-3.5.1.min.js"></script>
 <script src="../static/bootstrap/js/bootstrap.min.js"></script>
 <script src="../static/js/home.js"></script>
-<script>
-  $(function () {
-    $('.info-box .tags li').mouseover(function () {
-      $(this).parent('.tags').find('.active').removeClass('active');
-      $(this).addClass('active');
-      $(this).parents('h3').find('a').attr('href', $(this).attr('url'))
-    })
-  })
-</script>

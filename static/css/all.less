@@ -1,0 +1,65 @@
+.breadcrumb{
+  background-color: #fff;
+  line-height: 30px;
+  border-bottom: 1px solid #2860a8;
+  border-radius: 0;
+}
+.list-group{
+  button {
+    text-align: center;
+    outline: none;
+  }
+}
+.collapse, .collapsing{
+  .well {
+    margin-bottom: 0;
+    border-radius: 0;
+    padding: 0;
+    border: 0;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    ul{
+      li{
+        padding: 10px 15px;
+        text-align: center;
+        &:hover{
+          background-color: green;
+        }
+      }
+    }
+  }
+}
+.info{
+  h3{
+    color: #2860a8;
+    line-height: 50px;
+    border-bottom: 1px solid #ddd;
+  }
+  .page{
+    li{
+      font-size: 16px;
+      line-height: 40px;
+      &::before{
+        vertical-align: middle;
+      }
+      a{
+        display: inline-block;
+        width: 650px;
+        color: #333;
+        cursor: pointer;
+        vertical-align: middle;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      i{
+        float: right;
+        color: #999;
+      }
+    }
+  }
+}
+#pagination{
+  margin: 0 auto;
+  padding: 20px 0;
+}

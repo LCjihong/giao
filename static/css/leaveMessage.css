@@ -1,6 +1,3 @@
-body {
-  background-color: #eee;
-}
 #box {
   background-color: #fff;
 }
@@ -10,7 +7,7 @@ body {
 #box .data {
   border: 1px solid #ddd;
   border-top: unset;
-  height: 520px;
+  height: 550px;
 }
 #box #info .leaveMessageData {
   width: 100%;

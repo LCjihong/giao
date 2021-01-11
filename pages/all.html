@@ -1,0 +1,74 @@
+<script>
+  sessionStorage.setItem('pageName', './all.html');
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/reset.css">
+  <link rel="stylesheet" href="../static/css/all.css">
+  <link rel="stylesheet" href="../static/css/iconfont.css">
+  <link rel="stylesheet" href="../static/simplePaging-v2.2.1/css/simplePaging.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <ol class="breadcrumb">
+        <li><a href="./home.html">首页</a></li>
+        <li>最新消息</li>
+        <li class="active"></li>
+      </ol>
+      <div class="col-xs-3">
+        <div class="list-group">
+          <button type="button" class="list-group-item" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">新闻</button>
+          <div class="collapse" id="collapseTwo">
+            <div class="well">
+              <ul>
+                <li class="jumpn">新闻发布</li>
+                <li class="jumpn">时政要闻</li>
+                <li class="jumpn">通知通告</li>
+              </ul>
+            </div>
+          </div>
+          <button type="button" class="list-group-item jump">动态</button>
+          <button type="button" class="list-group-item" data-toggle="collapse" href="#collapseThr" aria-expanded="false" aria-controls="collapseThr">政策</button>
+          <div class="collapse" id="collapseThr">
+            <div class="well">
+              <ul>
+                <li class="jumpn">政策法规</li>
+                <li class="jumpn">政策解读</li>
+              </ul>
+            </div>
+          </div>
+          <button type="button" class="list-group-item jump">工作汇报</button>
+          <button type="button" class="list-group-item jump">公示及调查</button>
+          <button type="button" class="list-group-item" data-toggle="collapse" href="#collapseFor" aria-expanded="false" aria-controls="collapseFor">意见</button>
+          <div class="collapse" id="collapseFor">
+            <div class="well">
+              <ul>
+                <li class="jumpn">意见征求</li>
+                <li class="jumpn">建言献策</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-9 info">
+        <h3></h3>
+        <div class="content">
+          <ul class="page">
+          </ul>
+        </div>
+        <div id="pagination"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+<script src="../static/js/jquery-3.5.1.min.js"></script>
+<script src="../static/simplePaging-v2.2.1/js/simplePaging.js"></script>
+<script src="../static/bootstrap/js/bootstrap.min.js"></script>
+<script src="../static/js/all.js"></script>

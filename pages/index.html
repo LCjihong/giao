@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>全国供应链智能创新与应用综合管理办公室</title>
   <link rel="stylesheet" href="../static/css/reset.css">
-  <link rel="stylesheet" href="../static/css/public.css" />
   <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../static/css/public.css" />
 </head>
 
 <body>
@@ -26,40 +26,9 @@
       <ul>
         <li class="jump" tag="./home.html"><span>首页</span></li>
         <li class="jump" tag="./topic.html"><span>专题</span></li>
-        <li>
-          <span>机构人员</span>
-          <div class="dropMenu">
-            <p class="jump" tag="./personal/leader.html">总办领导</p>
-            <p class="jump" tag="./personal/relate.html">相关机构</p>
-            <p class="jump" tag="./personal/company.html">直属单位</p>
-          </div>
-        </li>
+        <li class="jump" tag="./personal.html"><span>机构人员</span></li>
         <li class="jump" tag="./leaveMessage.html"><span>留言选登</span></li>
-        <li>
-          <span>新闻</span>
-          <div class="dropMenu">
-            <p class="jump" tag="./news/news.html">新闻发布</p>
-            <p class="jump" tag="./news/freshNews.html">时政要闻</p>
-            <p class="jump" tag="./news/notice.html">通知通告</p>
-          </div>
-        </li>
-        <li class="jump" tag="./dynamic.html"><span>动态</span></li>
-        <li>
-          <span>政策</span>
-          <div class="dropMenu">
-            <p class="jump" tag="./policy/regulations.html">政策法规</p>
-            <p class="jump" tag="./policy/interpretation.html">政策解读</p>
-          </div>
-        </li>
-        <li class="jump" tag="./report.html"><span>工作汇报</span></li>
-        <li class="jump" tag="./publicity.html"><span>公示及调查</span></li>
-        <li>
-          <span>意见</span>
-          <div class="dropMenu">
-            <p class="jump" tag="./opinion/soliciting.html">意见征求</p>
-            <p class="jump" tag="./opinion/suggestion.html">建言献策</p>
-          </div>
-        </li>
+        <li class="jump" tag="./all.html"><span>最新消息</span></li>
       </ul>
     </div>
   </div>
@@ -89,7 +58,7 @@
     setIframeHeight(document.getElementById('mainframe'));
     setInterval(() => {
       setIframeHeight(document.getElementById('mainframe'));
-    }, 1000);
+    }, 500);
     // 跳转到sessionStorage中存储的页面
     $('#mainframe').attr('src', sessionStorage.getItem('pageName') ? sessionStorage.getItem('pageName') : './home.html');
     // 去除当前已选中标签的选中状态
@@ -103,47 +72,21 @@
       case './topic.html':
         $('.nav ul li:eq(1)').addClass('active');
         break;
-      case './personal/leader.html':
-      case './personal/relate.html':
-      case './personal/company.html':
+      case './personal.html':
         $('.nav ul li:eq(2)').addClass('active');
         break;
-      case './leaveMessage.html':
-        $('.nav ul li:eq(3)').addClass('active');
-        break;
-      case './news/news.html':
-      case './news/freshNews.html':
-      case './news/notice.html':
-        $('.nav ul li:eq(4)').addClass('active');
-        break;
-      case './dynamic.html':
-        $('.nav ul li:eq(5)').addClass('active');
-        break;
-      case './policy/regulations.html':
-      case './policy/interpretation.html':
-        $('.nav ul li:eq(6)').addClass('active');
-        break;
-      case './report.html':
-        $('.nav ul li:eq(7)').addClass('active');
-        break;
-      case './publicity.html':
-        $('.nav ul li:eq(8)').addClass('active');
-        break;
-      case './opinion/soliciting.html':
-      case './opinion/suggestion.html':
-        $('.nav ul li:eq(9)').addClass('active');
-        break;
     }
+
     $('.jump').click(function (e) { 
       e.preventDefault();
       $('#mainframe').attr('src', $(this).attr('tag'));
-    });
-
-    $('li.jump').click(function (e) { 
-      e.preventDefault();
       $('.nav .active').removeClass('active');
       $(this).addClass('active');
     });
+
+    // $('li.jump').click(function (e) { 
+    //   e.preventDefault();
+    // });
 
     $('.dropMenu p').click(function (e) { 
       e.preventDefault();

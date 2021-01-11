@@ -19,14 +19,13 @@ $(function () {
 // 留言选登
 $.ajax({
   type: "post",
-  url: "http://192.168.1.20:8880/view/getMessagesList",
+  url: "http://renjihong.zone/supplier-website/view/getMessagesList",
   data: {
     replyStatus: '',
     pageNo: 100
   },
   dataType: "json",
   success: function (response) {
-    console.log(response);
     $('#info .leaveMessageData').html(
       $.map(response.rows, function (v, i) {
         return `<li>

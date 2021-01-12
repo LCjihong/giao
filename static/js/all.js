@@ -1,11 +1,8 @@
-$('.list-group .jump, .list-group .jumpn').click(function (e) {
-  e.preventDefault();
-  $('.list-group .active').removeClass('active');
-  $(this).hasClass('jump') ? $(this).addClass('active') : $(this).parentsUntil('.collapseTwo').prev('.list-group-item').addClass('active');
-  changeTit($(this).text());
-  $('#pagination').html('');
-  pagination($(this).text());
-});
+function showDetail(id) {
+  sessionStorage.setItem('pageName', './newsDetail.html')
+  sessionStorage.setItem('newsId', id)
+  parent.location.reload();
+}
 
 function changeTit(type) {
   $('.info h3').text(type);
@@ -39,7 +36,7 @@ function pagination(type) {
 function writeList(data) {
   $('.content .page').html(
     $.map(data, function (v, i) {
-      return `<li class="iconfont icon-dian"><a>${v.articleAbstract}</a><i>[${v.createTime}]</i></li>`
+      return `<li class="iconfont icon-dian"><a onclick="showDetail(${v.id})">${v.articleAbstract}</a><i>[${v.createTime}]</i></li>`
     })
   );
 }
@@ -99,5 +96,26 @@ $(function () {
   $('.list-group .jump, .list-group .jumpn').click(function (e) {
     e.preventDefault();
     sessionStorage.setItem('newsType', $(this).text());
+    $('.list-group .active').removeClass('active');
+    $(this).hasClass('jump') ? $(this).addClass('active') : $(this).parentsUntil('.collapseTwo').prev('.list-group-item').addClass('active');
+    parent.location.reload();
   });
+  try {
+    var parentIframe = parent.document.getElementById("mainframe");
+    if (window.attachEvent) {
+      window.attachEvent("onload", function () {
+        parentIframe.height = 0; //加上这句
+        parentIframe.height = document.documentElement.scrollHeight;
+      });
+      return;
+    } else {
+      window.onload = function () {
+        parentIframe.height = 0; //加上这句
+        parentIframe.height = document.body.scrollHeight;
+      };
+      return;
+    }
+  } catch (e) {
+    throw new Error('setParentIframeHeight Error');
+  }
 })

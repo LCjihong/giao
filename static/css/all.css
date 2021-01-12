@@ -8,6 +8,10 @@
   text-align: center;
   outline: none;
 }
+.collapse,
+.collapsing {
+  user-select: none;
+}
 .collapse .well,
 .collapsing .well {
   margin-bottom: 0;
@@ -17,6 +21,10 @@
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
 }
+.collapse .well:last-of-type,
+.collapsing .well:last-of-type {
+  border-bottom: 1px solid #ddd;
+}
 .collapse .well ul li,
 .collapsing .well ul li {
   padding: 10px 15px;
@@ -24,7 +32,7 @@
 }
 .collapse .well ul li:hover,
 .collapsing .well ul li:hover {
-  background-color: green;
+  background-color: #eee;
 }
 .info h3 {
   color: #2860a8;

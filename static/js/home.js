@@ -1,3 +1,8 @@
+function showDetail(id) {
+  sessionStorage.setItem('pageName', './newsDetail.html')
+  sessionStorage.setItem('newsId', id)
+  parent.location.reload();
+}
 /**
  * 写入轮播图数据
  * @param {obj} data 轮播图数据
@@ -31,15 +36,16 @@ function writeSwiper(data) {
  */
 function writeNewsBox(data){
   $('#above .news-box .data .mainbox').html(
-    `<h4 index="${data[0].id}">${data[0].headline}</h4><p>${data[0].articleAbstract}</p>`
+    `<h4 class="newsEnter" onclick="showDetail(${data[0].id})">${data[0].headline}</h4><p>${data[0].articleAbstract}</p>`
   );
   $('#above .news-box .data ul').html(
     data.filter((v, i) => i != 0).map((v, i) => {
-      return `<li index="${data.id}"><em>·</em><span>${v.articleAbstract}</span><i>[${v.createTime.split(' ')[0]}]</i></li>`
+      return `<li class="newsEnter" onclick="showDetail(${v.id})"><em>·</em><span>${v.articleAbstract}</span><i>[${v.createTime.split(' ')[0]}]</i></li>`
     }).join('')
   );
 }
-
+function myClick(number) {
+}
 /**
  * 写入专题模块数据
  * @param {obj} data 专题数据
@@ -47,7 +53,7 @@ function writeNewsBox(data){
 function writeTopic(data) {
   $('#follow .topic .cell ul').html(
     $.map(data, function (v, i) {
-      return `<li>
+      return `<li class="newsEnter" onclick="showDetail(${v.id})">
         <div class="img-box">
           <img src="${v.picture}">
         </div>
@@ -84,8 +90,11 @@ var writeDynamic = function () {
   var index = 0;
   return function () {
     let _li = document.createElement('li');
-    // $(_li).html(data[index]);
     _li.innerHTML = data[index].articleAbstract;
+    $(_li).css('cursor', 'pointer');
+    _li.onclick = function () {
+      showDetail(data[index].id)
+    }
     $('.dynamic .cell ul').append(_li);
     index++;
     if (index == data.length) {
@@ -139,7 +148,7 @@ function writeLeaveMsg(data) {
 function writeMiddleLeft(data){
   $('.middleBox .left .data ul').html(
     $.map(data, function (v, i) {
-      return `<li index="${data.id}"><em>·</em><span>${v.articleAbstract}</span><i>[${v.createTime.split(' ')[0]}]</i></li>`
+      return `<li class="newsEnter" onclick="showDetail(${v.id})"><em>·</em><span>${v.articleAbstract}</span><i>[${v.createTime.split(' ')[0]}]</i></li>`
     }).join('')
   );
 }
@@ -147,7 +156,7 @@ function writeMiddleLeft(data){
 function writeMiddleRight(data) {
   $('.middleBox .right .data ul').html(
     $.map(data, function (v, i) {
-      return `<li index="${data.id}"><em>·</em><span>${v.articleAbstract}</span><i>[${v.createTime.split(' ')[0]}]</i></li>`
+      return `<li class="newsEnter" onclick="showDetail(${v.id})"><em>·</em><span>${v.articleAbstract}</span><i>[${v.createTime.split(' ')[0]}]</i></li>`
     }).join('')
   );
 }
@@ -307,6 +316,11 @@ $(function () {
     $(this).addClass('active');
     sessionStorage.setItem('newsType', $(this).text())
   })
+  $('.info-more').click(function (e) { 
+    e.preventDefault();
+    sessionStorage.setItem('pageName', './all.html');
+    parent.location.reload();
+  });
   $('.middleBox .left .info-box .tags li').mouseover(function () { 
     switch ($(this).text()) {
       case '政策法规':
@@ -317,4 +331,22 @@ $(function () {
         break;
     }
   });
+  try {
+    var parentIframe = parent.document.getElementById("mainframe");
+    if (window.attachEvent) {
+      window.attachEvent("onload", function () {
+        parentIframe.height = 0; //加上这句
+        parentIframe.height = document.documentElement.scrollHeight;
+      });
+      return;
+    } else {
+      window.onload = function () {
+        parentIframe.height = 0; //加上这句
+        parentIframe.height = document.body.scrollHeight;
+      };
+      return;
+    }
+  } catch (e) {
+    throw new Error('setParentIframeHeight Error');
+  }
 })

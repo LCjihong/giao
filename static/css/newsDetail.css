@@ -1,0 +1,25 @@
+.breadcrumb {
+  background-color: #fff;
+  line-height: 30px;
+  border-bottom: 1px solid #2860a8;
+  border-radius: 0;
+}
+.info-box {
+  padding-bottom: 20px;
+}
+.info-box .title {
+  color: #2860a8;
+  text-align: center;
+}
+.info-box .desc {
+  border-bottom: 2px solid #ddd;
+  text-align: center;
+  font-size: 16px;
+  padding: 8px 0;
+}
+.info-box .desc .time {
+  margin-right: 20px;
+}
+.info-box .info {
+  padding-top: 20px;
+}

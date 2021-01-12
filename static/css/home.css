@@ -1,3 +1,6 @@
+body {
+  background-color: #eee;
+}
 #above {
   background-color: #fff;
 }
@@ -303,4 +306,7 @@
   line-height: 34px;
   box-sizing: border-box;
   width: 100%;
+}
+.newsEnter {
+  cursor: pointer;
 }

@@ -1,0 +1,66 @@
+<script>
+  sessionStorage.setItem('pageName', './leaveMessage.html');
+</script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./static/css/reset.css">
+  <link rel="stylesheet" href="./static/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./static/simplePaging-v2.2.1/css/simplePaging.css">
+  <link rel="stylesheet" href="./static/css/leaveMessage.css">
+</head>
+
+<body>
+  <div id="box" class="container">
+    <div class="row">
+      <ul class="nav nav-tabs nav-justified">
+        <li role="presentation" class="active"><a href="#info">留言选登</a></li>
+        <li role="presentation"><a href="#writeMsg">我要留言</a></li>
+      </ul>
+
+      <div id="info" class="col-xs-12 data">
+        <ul class="leaveMessageData">
+          
+        </ul>
+        <div id="pagination"></div>
+      </div>
+
+      <div id="writeMsg" class="col-xs-12 data">
+        <div class="user">
+          <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon1">昵称：</span>
+            <input id="nickname" type="text" class="form-control" placeholder="请输入您的昵称" aria-describedby="sizing-addon1">
+            <span class="input-group-addon" id="sizing-addon2">姓名：</span>
+            <input id="name" type="text" class="form-control" placeholder="请输入您的真实姓名" aria-describedby="sizing-addon2">
+            <span class="input-group-addon" id="sizing-addon3">电话：</span>
+            <input id="tel" type="text" class="form-control" placeholder="请输入您的电话号码" aria-describedby="sizing-addon3">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon3">邮箱：</span>
+            <input id="email" type="text" class="form-control" placeholder="请输入您的邮箱" aria-describedby="sizing-addon3">
+            <span class="input-group-addon" id="sizing-addon4">地址：</span>
+            <input id="address" type="text" class="form-control" placeholder="请输入您的地址" aria-describedby="sizing-addon4">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon5">标题：</span>
+            <input id="headline" type="text" class="form-control" placeholder="请输入您的标题" aria-describedby="sizing-addon5">
+          </div>
+        </div>
+        <textarea id="content" class="form-control content" placeholder="请输入您的留言内容" rows="3"></textarea>
+        <div class="btn-box">
+          <button id="submit" class="btn btn-primary" data-dismiss="alert" aria-label="Close">提交</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<script src="./static/js/jquery-3.5.1.min.js"></script>
+<script src="./static/simplePaging-v2.2.1/js/simplePaging.js"></script>
+<script src="./static/bootstrap/js/bootstrap.min.js"></script>
+<script src="./static/js/leaveMessage.js"></script>

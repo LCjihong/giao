@@ -2,6 +2,7 @@
 
 #box{
   background-color: #fff;
+  margin-bottom: 20px;
   .nav{
     li{
       background-color: #eee;
@@ -10,7 +11,7 @@
   .data{
     border: 1px solid #ddd;
     border-top: unset;
-    height: 550px;
+    height: 500px;
   }
   #info{
     .leaveMessageData{
@@ -21,16 +22,26 @@
     }
   }
   #writeMsg{
+    padding: 10px;
     display: none;
-    .form-control{
+    .content{
       resize: none;
-      height: 400px;
-      margin-bottom: 10px;
+      height: 300px;
+      margin: 10px 0 10px;
     }
     .btn-box{
       text-align: center;
       .btn{
         padding: 8px 80px;
+      }
+    }
+    .input-group{
+      margin-bottom: 10px;
+      input{
+        margin-right: 10px;
+        &:last-of-type{
+          margin: 0;
+        }
       }
     }
   }

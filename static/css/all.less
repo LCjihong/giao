@@ -11,6 +11,7 @@
   }
 }
 .collapse, .collapsing{
+  user-select: none;
   .well {
     margin-bottom: 0;
     border-radius: 0;
@@ -18,12 +19,15 @@
     border: 0;
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
+    &:last-of-type{
+      border-bottom: 1px solid #ddd;
+    }
     ul{
       li{
         padding: 10px 15px;
         text-align: center;
         &:hover{
-          background-color: green;
+          background-color: #eee;
         }
       }
     }

@@ -1,5 +1,6 @@
 #box {
   background-color: #fff;
+  margin-bottom: 20px;
 }
 #box .nav li {
   background-color: #eee;
@@ -7,7 +8,7 @@
 #box .data {
   border: 1px solid #ddd;
   border-top: unset;
-  height: 550px;
+  height: 500px;
 }
 #box #info .leaveMessageData {
   width: 100%;
@@ -16,16 +17,26 @@
   height: 30px;
 }
 #box #writeMsg {
+  padding: 10px;
   display: none;
 }
-#box #writeMsg .form-control {
+#box #writeMsg .content {
   resize: none;
-  height: 400px;
-  margin-bottom: 10px;
+  height: 300px;
+  margin: 10px 0 10px;
 }
 #box #writeMsg .btn-box {
   text-align: center;
 }
 #box #writeMsg .btn-box .btn {
   padding: 8px 80px;
+}
+#box #writeMsg .input-group {
+  margin-bottom: 10px;
+}
+#box #writeMsg .input-group input {
+  margin-right: 10px;
+}
+#box #writeMsg .input-group input:last-of-type {
+  margin: 0;
 }

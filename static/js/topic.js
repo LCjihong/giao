@@ -1,3 +1,9 @@
+function showDetail(id) {
+  sessionStorage.setItem('pageName', './newsDetail.html')
+  sessionStorage.setItem('newsId', id)
+  parent.location.reload();
+}
+
 function pagitation() {
   $.ajax({
     type: "post",
@@ -25,7 +31,7 @@ function pagitation() {
 function writeData(data) {
   $('.info').html(
     $.map(data, function (v, i) {
-      return `<li>
+      return `<li onclick="showDetail(${v.id})">
             <div class="img-box">
               <img src="${v.picture}" alt="${v.headline}">
             </div>
@@ -56,3 +62,23 @@ function getData(num) {
   });
 }
 pagitation();
+$(function () {
+  try {
+    var parentIframe = parent.document.getElementById("mainframe");
+    if (window.attachEvent) {
+      window.attachEvent("onload", function () {
+        parentIframe.height = 0; //加上这句
+        parentIframe.height = document.documentElement.scrollHeight;
+      });
+      return;
+    } else {
+      window.onload = function () {
+        parentIframe.height = 0; //加上这句
+        parentIframe.height = document.body.scrollHeight;
+      };
+      return;
+    }
+  } catch (e) {
+    throw new Error('setParentIframeHeight Error');
+  }
+})

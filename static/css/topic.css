@@ -13,6 +13,7 @@
   border-bottom: 1px solid #ddd;
   transition: 0.3s;
   background-color: #fff;
+  user-select: none;
 }
 .info li .img-box {
   height: 100%;
